@@ -46,7 +46,7 @@ También se enfocará en la extracción de conclusiones semánticas, que será �
 
 Repaso de funciones utilizadas en el capítulo:
 
-* `df_status(data)`: Análisis de la estructura del conjunto de datos
+* `status(data)`: Análisis de la estructura del conjunto de datos
 * `describe(data)`:  Análisis numérico y categórico (cuantitativo)
 * `freq(data)`: Análisis categórico (cuantitativo y gráfico)
 * `profiling_num(data)`: Análisis para variables numéricas (cuantitativas)
@@ -79,7 +79,7 @@ La función `df_status` incluida en `funModeling` nos puede ayudar mostrándonos
 
 ```{r df-status, eval=FALSE}
 # Analizar los datos ingresados
-df_status(heart_disease)
+status(heart_disease)
 ```
 
 ```{r profiling-data-in-r, echo=FALSE, fig.cap="Estado de salud de un conjunto de datos", out.extra=""}
@@ -108,14 +108,14 @@ knitr::include_graphics("exploratory_data_analysis/dataset_profiling.png")
 
 #### Filtrar casos no deseados
 
-La función `df_status` toma un data frame y genera una _tabla de estado_ que nos puede ayudar a quitar rápidamente atributos (o variables) en base a todas las métricas descriptas en la sección anterior. Por ejemplo:
+La función `status` toma un data frame y genera una _tabla de estado_ que nos puede ayudar a quitar rápidamente atributos (o variables) en base a todas las métricas descriptas en la sección anterior. Por ejemplo:
 
 
 **Quitar variables con un _alto número_ de ceros**
 
 ```{r profiling-data}
 # Analizar los datos ingresados
-my_data_status=df_status(heart_disease)
+my_data_status=status(heart_disease)
 
 # Quitar las variables que tienen un 60% de valores cero
 vars_to_remove=filter(my_data_status, p_zeros > 60)  %>% .$variable
@@ -140,7 +140,7 @@ El mismo razonamiento aplica cuando queremos quitar (o conservar) aquellas varia
 
 #### Profundizar en estos temas
 
-Los valores que devuelve la función `df_status` son abordados en profundidad en otros capítulos:
+Los valores que devuelve la función `status` son abordados en profundidad en otros capítulos:
 
 * **Valores faltantes** el tratamiento, análisis e imputación de (NA) son abordados en el capítulo [Datos faltantes](#datos_faltantes).
 * **Tipos de datos**, las conversiones e implicancias de trabajar con distintos tipos de datos y más temas son abordados en el capítulo  [Tipos de datos](#tipos_de_datos).
